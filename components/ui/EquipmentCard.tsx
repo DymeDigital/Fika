@@ -17,10 +17,11 @@ export default function EquipmentCard({ item, index = 0 }: EquipmentCardProps) {
 
   return (
     <motion.div
+      layout
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.45, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] as const }}
+      transition={{ duration: 0.45, delay: (index % 4) * 0.05, ease: [0.16, 1, 0.3, 1] as const }}
       className="card-equipment group flex flex-col"
     >
       {/* Image */}

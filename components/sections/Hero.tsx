@@ -38,10 +38,10 @@ const stats = [
 ]
 
 const heroPicks = [
-  'diesel-generator-6kva',
-  'pressure-washer-200-bar',
+  'industrial-generator',
+  'high-pressure-washer',
   'plate-compactor',
-  'angle-grinder-230mm',
+  'heavy-duty-breaker',
 ]
   .map((slug) => equipment.find((e) => e.slug === slug))
   .filter((e): e is NonNullable<typeof e> => Boolean(e))
