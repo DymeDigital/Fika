@@ -145,6 +145,35 @@ export default function Hero() {
       style={{ background: '#03341E' }}
       aria-label="Hero"
     >
+      {/* Background Images */}
+      <div className="absolute inset-0 select-none pointer-events-none">
+        {/* Mobile Background */}
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src="/images/mobilehero.webp"
+            alt="Finka mobile background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Desktop Background */}
+        <div className="absolute inset-0 hidden md:block">
+          <Image
+            src="/images/hero-bg.webp"
+            alt="Finka background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+      </div>
+
+      {/* Dark gradient overlay for text readability */}
+      <div className="absolute inset-0 hero-overlay pointer-events-none" />
+
       {/* Subtle industrial grid texture */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -155,7 +184,7 @@ export default function Hero() {
       />
 
       <div className="container-site relative pt-28 pb-20 md:pt-36 md:pb-28 lg:pt-24 lg:pb-16 lg:min-h-[96vh] lg:flex lg:items-center">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-16 items-center w-full">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-16 items-center w-full">
           {/* Copy column */}
           <div className="text-center lg:text-left">
             {/* Location badge */}
@@ -197,35 +226,38 @@ export default function Hero() {
               className="w-16 h-1.5 bg-finka-yellow mb-6 mx-auto lg:mx-0"
             />
 
-            {/* Subheading */}
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0.3}
-              className="text-lg md:text-xl text-white/75 leading-relaxed mb-9 max-w-lg mx-auto lg:mx-0"
-            >
-              Reliable equipment for contractors, builders and DIY projects at
-              affordable daily hire rates.
-            </motion.p>
+            {/* Desktop Subheading & CTA Buttons */}
+            <div className="hidden lg:block">
+              {/* Subheading */}
+              <motion.p
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                custom={0.3}
+                className="text-lg md:text-xl text-white/75 leading-relaxed mb-9 max-w-lg mx-auto lg:mx-0"
+              >
+                Reliable equipment for contractors, builders and DIY projects at
+                affordable daily hire rates.
+              </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0.4}
-              className="flex flex-wrap justify-center lg:justify-start gap-4"
-            >
-              <Link href="/equipment" className="btn-primary">
-                Browse Equipment
-                <ArrowRight size={16} />
-              </Link>
-              <a href={`tel:${SITE.phone.replace(/\s/g, '')}`} className="btn-outline">
-                <Phone size={16} />
-                Call Now
-              </a>
-            </motion.div>
+              {/* CTA Buttons */}
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                custom={0.4}
+                className="flex flex-wrap justify-center lg:justify-start gap-4"
+              >
+                <Link href="/equipment" className="btn-primary">
+                  Browse Equipment
+                  <ArrowRight size={16} />
+                </Link>
+                <a href={`tel:${SITE.phone.replace(/\s/g, '')}`} className="btn-outline">
+                  <Phone size={16} />
+                  Call Now
+                </a>
+              </motion.div>
+            </div>
           </div>
 
           {/* Equipment carousel + stats */}
@@ -236,6 +268,39 @@ export default function Hero() {
             custom={0.35}
           >
             <EquipmentCarousel />
+
+            {/* Mobile CTA Buttons & Subheading */}
+            <div className="block lg:hidden mt-6 text-center">
+              {/* CTA Buttons */}
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                custom={0.3}
+                className="flex flex-wrap justify-center gap-4 mb-6"
+              >
+                <Link href="/equipment" className="btn-primary">
+                  Browse Equipment
+                  <ArrowRight size={16} />
+                </Link>
+                <a href={`tel:${SITE.phone.replace(/\s/g, '')}`} className="btn-outline">
+                  <Phone size={16} />
+                  Call Now
+                </a>
+              </motion.div>
+
+              {/* Subheading */}
+              <motion.p
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                custom={0.35}
+                className="text-base md:text-lg text-white/75 leading-relaxed mb-6 max-w-lg mx-auto"
+              >
+                Reliable equipment for contractors, builders and DIY projects at
+                affordable daily hire rates.
+              </motion.p>
+            </div>
 
             {/* Stats */}
             <div className="mt-8 flex flex-wrap justify-center gap-3">

@@ -32,7 +32,7 @@ export default function AboutSection() {
             className="relative"
           >
             {/* Main image */}
-            <div className="aspect-[4/3] w-full relative overflow-hidden   p-4">
+            <div className="aspect-[4/3] w-full relative overflow-hidden bg-neutral-100 p-4">
               <Image
                 src="/images/about.png"
                 alt="About FIKA Tool & Plant Hire"
@@ -44,7 +44,7 @@ export default function AboutSection() {
             {/* Accent border */}
             <div
               className="absolute -bottom-4 -right-4 w-2/3 h-2/3 -z-10 border-b-2 border-r-2"
-              style={{ borderColor: '#116242' }}
+              style={{ borderColor: '#1C3A2E' }}
             />
           </motion.div>
 
@@ -83,7 +83,7 @@ export default function AboutSection() {
                   <CheckCircle2
                     size={16}
                     className="shrink-0 mt-0.5"
-                    style={{ color: '#116242' }}
+                    style={{ color: '#1C3A2E' }}
                   />
                   {val}
                 </li>
