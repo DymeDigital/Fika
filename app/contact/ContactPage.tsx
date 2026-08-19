@@ -253,7 +253,7 @@ export default function ContactPage() {
                       type="text"
                       value={formState.equipment}
                       onChange={handleChange}
-                      placeholder="e.g. Heavy Duty Breaker, Generator 6.5kVA"
+                      placeholder="e.g. Jack Hammer, Plate Compactor"
                       className="form-input"
                     />
                   </div>

@@ -25,14 +25,17 @@ export default function EquipmentCard({ item, index = 0 }: EquipmentCardProps) {
       className="card-equipment group flex flex-col"
     >
       {/* Image */}
-      <Link href={`/equipment/${item.slug}`} className="block overflow-hidden aspect-[4/3] relative bg-neutral-100">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        />
+      <Link href={`/equipment/${item.slug}`} className="block overflow-hidden aspect-[4/3] relative" style={{ background: '#F7F7F5' }}>
+        <div className="absolute inset-0 p-6">
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+            quality={92}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+        </div>
         {/* Price badge */}
         <div className="absolute top-3 left-3">
           <span className="price-badge">

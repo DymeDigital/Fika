@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Phone, ArrowRight, MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SITE } from '@/lib/constants'
-import { equipment } from '@/lib/data/equipment'
+import { featuredEquipment } from '@/lib/data/equipment'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -37,14 +37,7 @@ const stats = [
   { value: 'Delivery', label: 'Available' },
 ]
 
-const heroPicks = [
-  'industrial-generator',
-  'high-pressure-washer',
-  'plate-compactor',
-  'heavy-duty-breaker',
-]
-  .map((slug) => equipment.find((e) => e.slug === slug))
-  .filter((e): e is NonNullable<typeof e> => Boolean(e))
+const heroPicks = featuredEquipment
 
 const AUTOPLAY_MS = 3200
 
@@ -145,32 +138,6 @@ export default function Hero() {
       style={{ background: '#03341E' }}
       aria-label="Hero"
     >
-      {/* Background Images */}
-      <div className="absolute inset-0 select-none pointer-events-none">
-        {/* Mobile Background */}
-        <div className="absolute inset-0 md:hidden">
-          <Image
-            src="/images/mobilehero.webp"
-            alt="Finka mobile background"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-        {/* Desktop Background */}
-        <div className="absolute inset-0 hidden md:block">
-          <Image
-            src="/images/hero-bg.webp"
-            alt="Finka background"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-      </div>
-
       {/* Dark gradient overlay for text readability */}
       <div className="absolute inset-0 hero-overlay pointer-events-none" />
 

@@ -68,13 +68,14 @@ export default async function EquipmentDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Image */}
             <Reveal y={30}>
-              <div className="relative aspect-[4/3] overflow-hidden" style={{ background: '#F0F0EE' }}>
+              <div className="relative aspect-[4/3] overflow-hidden p-8 sm:p-12" style={{ background: '#F7F7F5' }}>
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority
+                  quality={92}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>

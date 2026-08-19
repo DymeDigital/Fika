@@ -37,15 +37,6 @@ export const categories: Category[] = [
     image: '/images/equipment/pressure-washer.jpg',
   },
   {
-    id: 'generators',
-    name: 'Generators',
-    slug: 'generators',
-    description: 'Petrol and diesel generators up to 10kVA',
-    iconKey: 'Bolt',
-    count: 4,
-    image: '/images/equipment/generator.jpg',
-  },
-  {
     id: 'garden',
     name: 'Garden Equipment',
     slug: 'garden',
@@ -62,15 +53,6 @@ export const categories: Category[] = [
     iconKey: 'Scissors',
     count: 5,
     image: '/images/equipment/concrete-saw.jpg',
-  },
-  {
-    id: 'ladders',
-    name: 'Ladders & Access',
-    slug: 'ladders',
-    description: 'Extension ladders, scaffolding and steps',
-    iconKey: 'ArrowUpToLine',
-    count: 6,
-    image: '/images/equipment/ladder.jpg',
   },
   {
     id: 'air-compressors',

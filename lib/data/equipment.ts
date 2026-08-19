@@ -23,16 +23,16 @@ export interface Equipment {
 
 export const equipment: Equipment[] = [
   {
-    id: 'heavy-duty-breaker',
-    name: 'Heavy Duty Breaker',
-    slug: 'heavy-duty-breaker',
+    id: 'jack-hammer',
+    name: 'Jack Hammer',
+    slug: 'jack-hammer',
     category: 'Power Tools',
     categorySlug: 'power-tools',
     dailyRate: 699,
     description:
-      'Professional heavy-duty breaker designed for demanding demolition tasks on concrete, brick, and asphalt. High-performance motor and premium build quality ensure maximum impact energy.',
-    shortDescription: 'Professional heavy-duty breaker for serious concrete demolition.',
-    image: '/images/equipment/extracted_p23_0_FormXob.7ec528b1aaaa9b650084e53bd38f81c7.png',
+      'Professional heavy-duty jack hammer designed for demanding demolition tasks on concrete, brick, and asphalt. High-performance motor and premium build quality ensure maximum impact energy.',
+    shortDescription: 'Professional heavy-duty jack hammer for serious concrete demolition.',
+    image: '/images/equipment/hire/heavy-duty-breaker.webp',
     specifications: [
       { label: 'Voltage', value: '220-240V ~ 50/60Hz' },
       { label: 'Input Power', value: '2200W' },
@@ -50,26 +50,6 @@ export const equipment: Equipment[] = [
     available: true,
   },
   {
-    id: 'jack-hammer',
-    name: 'Jack Hammer',
-    slug: 'jack-hammer',
-    category: 'Power Tools',
-    categorySlug: 'power-tools',
-    dailyRate: 400,
-    description:
-      'Standard industrial jack hammer suitable for breaking up concrete slabs, brickwork, paths, and general masonry demolition.',
-    shortDescription: 'Standard industrial demolition hammer for concrete and masonry.',
-    image: '/images/equipment/extracted_p8_0_FormXob.d4d7e96473fe31509e6e1d35b4af8b2e.jpg',
-    specifications: [
-      { label: 'Input Power', value: '2200W' },
-      { label: 'Chuck System', value: 'HEX' },
-      { label: 'Chisels included', value: 'Flat & Pointed' },
-    ],
-    suitableFor: ['Concrete breaking', 'Tile removal', 'Demolition work', 'Wall breaking'],
-    featured: true,
-    available: true,
-  },
-  {
     id: 'wacker-rammer',
     name: 'Wacker Compactor',
     slug: 'wacker-compactor',
@@ -79,7 +59,7 @@ export const equipment: Equipment[] = [
     description:
       'High-performance petrol-powered compaction rammer (Wacker), designed for compacting cohesive, mixed, and granular soils in tight or confined areas.',
     shortDescription: 'Heavy-duty petrol wacker compactor for confined soil compaction.',
-    image: '/images/equipment/extracted_p24_0_FormXob.54243ba8f7806e53e2a0355fb95f73d8.png',
+    image: '/images/equipment/hire/wacker-compactor.jpeg',
     specifications: [
       { label: 'Engine', value: 'Petrol Engine' },
       { label: 'Use Case', value: 'Confined space compaction' },
@@ -99,7 +79,7 @@ export const equipment: Equipment[] = [
     description:
       'Petrol-powered plate compactor ideal for sub-base preparation, roadwork, paving projects, and soil/asphalt compaction.',
     shortDescription: 'Petrol plate compactor for sub-base and paving preparation.',
-    image: '/images/equipment/extracted_p7_0_FormXob.34251343da2509d9a52abb3b7635a2d1.jpg',
+    image: '/images/equipment/hire/plate-compactor.webp',
     specifications: [
       { label: 'Engine', value: 'Petrol Engine' },
       { label: 'Fuel', value: 'Unleaded Petrol' },
@@ -119,7 +99,7 @@ export const equipment: Equipment[] = [
     description:
       'Commercial-grade petrol high-pressure washer designed to tackle tough dirt, mold, grease, and grime on various surfaces.',
     shortDescription: 'Commercial petrol pressure washer for heavy cleaning.',
-    image: '/images/equipment/extracted_p12_0_FormXob.582a7df1f20823d7b1c54e62144ed9c6.jpg',
+    image: '/images/equipment/hire/high-pressure-washer.jpeg',
     specifications: [
       { label: 'Engine', value: 'Petrol Engine' },
       { label: 'Hose', value: 'Heavy duty pressure hose' },
@@ -127,46 +107,6 @@ export const equipment: Equipment[] = [
     ],
     suitableFor: ['Driveway cleaning', 'Roof cleaning', 'Vehicle washing', 'Facade preparation'],
     featured: true,
-    available: true,
-  },
-  {
-    id: 'generator-500',
-    name: 'Industrial Generator',
-    slug: 'industrial-generator',
-    category: 'Generators',
-    categorySlug: 'generators',
-    dailyRate: 500,
-    description:
-      'Robust petrol generator delivering dependable power for site operations, power tools, and load shedding backup situations.',
-    shortDescription: 'Reliable petrol generator for power tools and home backup.',
-    image: '/images/equipment/extracted_p9_0_FormXob.9801df3b4341992df41c0f97778a2c6a.jpg',
-    specifications: [
-      { label: 'Engine', value: 'Petrol Engine' },
-      { label: 'AVR', value: 'Automatic Voltage Regulation' },
-      { label: 'Outlets', value: 'Standard sockets' },
-    ],
-    suitableFor: ['Site power supply', 'Load shedding backup', 'Powering construction equipment'],
-    featured: true,
-    available: true,
-  },
-  {
-    id: 'extension-ladder-6m',
-    name: '6M Extension Ladder',
-    slug: 'extension-ladder-6m',
-    category: 'Ladders & Access',
-    categorySlug: 'ladders',
-    dailyRate: 550,
-    description:
-      'Heavy-duty aluminum 6m extension ladder designed to reach high points safely. Anti-slip safety rungs and locks.',
-    shortDescription: 'Heavy-duty 6m aluminum extension ladder.',
-    image: '/images/equipment/extracted_p15_0_FormXob.4e1607f2d55b2cc62b855eb83867a310.jpg',
-    specifications: [
-      { label: 'Height', value: '6 meters extended' },
-      { label: 'Material', value: 'High-strength Aluminum' },
-      { label: 'Rungs', value: 'D-profile safety rungs' },
-    ],
-    suitableFor: ['Painting', 'Roofing', 'Electrical repairs', 'Tree pruning access'],
-    featured: false,
     available: true,
   },
   {
@@ -179,7 +119,7 @@ export const equipment: Equipment[] = [
     description:
       '150L air compressor providing high volume airflow to power various pneumatic tools, sprayers, and industrial equipment.',
     shortDescription: '150L industrial compressor for pneumatic systems.',
-    image: '/images/equipment/extracted_p10_0_FormXob.3c73d0041bd6792eb182c916d653741a.jpg',
+    image: '/images/equipment/hire/air-compressor-150l.jpeg',
     specifications: [
       { label: 'Capacity', value: '150 Liters' },
       { label: 'Power Source', value: 'Electric' },
@@ -199,7 +139,7 @@ export const equipment: Equipment[] = [
     description:
       '70L industrial wet & dry vacuum designed for quick cleanup of dust, debris, and liquids on commercial and residential sites.',
     shortDescription: '70L wet & dry industrial vacuum.',
-    image: '/images/equipment/extracted_p5_0_FormXob.5cfc0de64c439ce0282ced047f19a598.jpg',
+    image: '/images/equipment/hire/vacuum-70l.webp',
     specifications: [
       { label: 'Capacity', value: '70 Liters' },
       { label: 'Function', value: 'Wet & Dry extraction' },
@@ -219,7 +159,7 @@ export const equipment: Equipment[] = [
     description:
       'Professional-grade upholstery and carpet extractor with powerful suction for deep fabric cleaning and water reclamation.',
     shortDescription: 'Professional upholstery and carpet extraction cleaner.',
-    image: '/images/equipment/extracted_p3_0_FormXob.6092dc1c00fe817d40fcf0916b107b43.jpg',
+    image: '/images/equipment/hire/carpet-cleaner-extractor.webp',
     specifications: [
       { label: 'Power', value: 'Electric' },
       { label: 'Attachments', value: 'Hand tool & carpet wand' },
@@ -239,7 +179,7 @@ export const equipment: Equipment[] = [
     description:
       'Single-disc floor scrubber and polisher designed to scrub, clean, and polish hard floor surfaces with ease and efficiency.',
     shortDescription: 'Single-disc scrubber and polisher for hard floors.',
-    image: '/images/equipment/extracted_p4_0_FormXob.58e4684386871ca07bddf4564c739431.jpg',
+    image: '/images/equipment/hire/floor-scrubber-polisher.webp',
     specifications: [
       { label: 'Type', value: 'Single Disc' },
       { label: 'Power Source', value: '220V Electric' },
@@ -259,7 +199,7 @@ export const equipment: Equipment[] = [
     description:
       'Rotary flat surface cleaner attachment for pressure washers. Speeds up large flat surface washing while preventing zebra striping.',
     shortDescription: 'Flat surface rotary cleaner for driveways and patios.',
-    image: '/images/equipment/extracted_p6_0_FormXob.a8a5a86e993e92637cf5febd33d75da1.jpg',
+    image: '/images/equipment/hire/rotary-surface-cleaner.webp',
     specifications: [
       { label: 'Operation', value: 'Dual rotating spray jets' },
       { label: 'Mounting', value: 'Easy-glide castors' },
@@ -279,7 +219,7 @@ export const equipment: Equipment[] = [
     description:
       'Airless paint sprayer designed to provide rapid, uniform coverage on large painting and sealing projects.',
     shortDescription: 'Professional airless paint and coating sprayer.',
-    image: '/images/equipment/extracted_p11_0_FormXob.c2694095566affc1f3d593074a6fd70b.jpg',
+    image: '/images/equipment/hire/airless-paint-sprayer.webp',
     specifications: [
       { label: 'System', value: 'Airless high pressure' },
       { label: 'Power Source', value: 'Electric motor' },
@@ -299,7 +239,7 @@ export const equipment: Equipment[] = [
     description:
       'High-performance Karcher spray-extraction machine for deep-cleaning carpets, rugs, and commercial textiles.',
     shortDescription: 'Deep cleaning carpet and fabric extraction unit.',
-    image: '/images/equipment/extracted_p13_0_FormXob.5fd2a04c037ed5fc840ffa03b7256cde.jpg',
+    image: '/images/equipment/hire/upholstery-cleaner-pro.jpeg',
     specifications: [
       { label: 'Brand', value: 'Kärcher' },
       { label: 'Type', value: 'Spray extraction' },
@@ -319,7 +259,7 @@ export const equipment: Equipment[] = [
     description:
       'Petrol-powered double-sided hedge trimmer designed to shape and cut through branches, hedges, and garden overgrowth quickly.',
     shortDescription: 'Double-sided petrol trimmer for hedges and bushes.',
-    image: '/images/equipment/extracted_p14_0_FormXob.54503c4744557c9c8699f9e5937c6ffe.jpg',
+    image: '/images/equipment/hire/hedge-trimmer.webp',
     specifications: [
       { label: 'Engine', value: '2-Stroke Petrol Engine' },
       { label: 'Blade', value: 'Double-sided reciprocating' },
@@ -339,7 +279,7 @@ export const equipment: Equipment[] = [
     description:
       'Telescopic petrol pole saw for reaching and pruning high branches and trees safely from ground level.',
     shortDescription: 'Telescopic petrol pole saw for high tree trimming.',
-    image: '/images/equipment/extracted_p16_0_FormXob.b6e3f4b659bcdecf20bb889f06a764a9.jpg',
+    image: '/images/equipment/hire/pole-saw.webp',
     specifications: [
       { label: 'Type', value: 'Pole-mounted chainsaw' },
       { label: 'Power', value: '2-Stroke Petrol Engine' },
@@ -359,7 +299,7 @@ export const equipment: Equipment[] = [
     description:
       'Heavy-duty petrol brush cutter and grass trimmer. Ideal for cutting thick brush, high grass, and dense garden weeds.',
     shortDescription: 'Heavy-duty petrol weed and brush cutter.',
-    image: '/images/equipment/extracted_p17_0_FormXob.91639fd081293adeff7f42e404305e8a.jpg',
+    image: '/images/equipment/hire/brush-cutter.webp',
     specifications: [
       { label: 'Engine', value: 'Petrol Engine' },
       { label: 'Head Type', value: 'Line head or steel blade' },
@@ -379,7 +319,7 @@ export const equipment: Equipment[] = [
     description:
       'Powerful 2-stroke petrol chainsaw for felling trees, logs, firewood preparation, and clearing fallen trees.',
     shortDescription: 'Powerful petrol chainsaw for tree cutting and logging.',
-    image: '/images/equipment/extracted_p18_0_FormXob.7a1e264f7cfaa4a88c42dbf12cd6639d.jpg',
+    image: '/images/equipment/hire/chainsaw.jpeg',
     specifications: [
       { label: 'Engine', value: '2-Stroke Petrol' },
       { label: 'Use Case', value: 'Wood cutting and felling' },
@@ -399,7 +339,7 @@ export const equipment: Equipment[] = [
     description:
       'Petrol-powered cement and concrete mixer with a sturdy frame and large capacity drum for efficient onsite mixing.',
     shortDescription: 'Petrol-powered concrete and mortar site mixer.',
-    image: '/images/equipment/extracted_p19_0_FormXob.a2fc3bc35740a49962d9dad4e8c2fae7.jpg',
+    image: '/images/equipment/hire/concrete-mixer.webp',
     specifications: [
       { label: 'Engine', value: 'Petrol Engine' },
       { label: 'Stand', value: 'Heavy duty steel support' },
@@ -419,7 +359,7 @@ export const equipment: Equipment[] = [
     description:
       'Commercial walk-behind floor scrubber and drier. Cleans large floors quickly, leaving them scrubbed, dry, and safe.',
     shortDescription: 'Industrial walk-behind floor scrubber dryer.',
-    image: '/images/equipment/extracted_p25_0_FormXob.08765ed464cdb6501082e7e5925b1233.png',
+    image: '/images/equipment/hire/walk-behind-scrubber.webp',
     specifications: [
       { label: 'Brand', value: 'Numatic' },
       { label: 'Type', value: 'Scrubber Dryer' },
@@ -427,6 +367,86 @@ export const equipment: Equipment[] = [
     ],
     suitableFor: ['Warehouse floors', 'Supermarket aisles', 'Gymnasiums', 'Industrial floor cleaning'],
     featured: true,
+    available: true,
+  },
+  {
+    id: 'water-pump-petrol',
+    name: 'Petrol Water Pump',
+    slug: 'petrol-water-pump',
+    category: 'Power Tools',
+    categorySlug: 'power-tools',
+    dailyRate: 400,
+    description:
+      'Petrol-powered water transfer pump for draining flooded sites, dewatering trenches, and general water removal on construction and residential sites.',
+    shortDescription: 'Petrol-powered pump for site dewatering and drainage.',
+    image: '/images/equipment/hire/water-pump.jpeg',
+    specifications: [
+      { label: 'Engine', value: 'Petrol Engine' },
+      { label: 'Fuel', value: 'Unleaded Petrol' },
+      { label: 'Ports', value: 'Inlet & outlet hose fittings' },
+    ],
+    suitableFor: ['Flooded site drainage', 'Trench dewatering', 'Pool & tank draining', 'Irrigation transfer'],
+    featured: false,
+    available: true,
+  },
+  {
+    id: 'road-roller-mini',
+    name: 'Mini Road Roller',
+    slug: 'mini-road-roller',
+    category: 'Compaction',
+    categorySlug: 'compaction',
+    dailyRate: 1100,
+    description:
+      'Walk-behind double-drum road roller for compacting asphalt, gravel, and sub-base on driveways, pathways, and small roadworks.',
+    shortDescription: 'Walk-behind double-drum roller for asphalt and driveway compaction.',
+    image: '/images/equipment/hire/road-roller.jpeg',
+    specifications: [
+      { label: 'Engine', value: 'Petrol Engine' },
+      { label: 'Drum', value: 'Double vibrating drum' },
+      { label: 'Operation', value: 'Walk-behind' },
+    ],
+    suitableFor: ['Driveway asphalt compaction', 'Pathway construction', 'Gravel road compaction', 'Small roadworks'],
+    featured: false,
+    available: true,
+  },
+  {
+    id: 'concrete-saw-cutter',
+    name: 'Concrete Saw Cutter',
+    slug: 'concrete-saw-cutter',
+    category: 'Cutting Equipment',
+    categorySlug: 'cutting',
+    dailyRate: 550,
+    description:
+      'Petrol-powered walk-behind concrete saw for cutting expansion joints and clean lines in concrete slabs, asphalt, and paving.',
+    shortDescription: 'Petrol walk-behind saw for cutting concrete and asphalt.',
+    image: '/images/equipment/hire/concrete-saw.jpeg',
+    specifications: [
+      { label: 'Engine', value: 'Petrol Engine' },
+      { label: 'Blade', value: 'Diamond cutting blade' },
+      { label: 'Operation', value: 'Walk-behind with depth control' },
+    ],
+    suitableFor: ['Expansion joint cutting', 'Concrete slab cutting', 'Asphalt cutting', 'Paving line work'],
+    featured: false,
+    available: true,
+  },
+  {
+    id: 'cordless-pole-saw',
+    name: 'Cordless Pole Saw',
+    slug: 'cordless-pole-saw',
+    category: 'Garden Equipment',
+    categorySlug: 'garden',
+    dailyRate: 300,
+    description:
+      'Battery-powered telescopic pole saw for quiet, low-maintenance pruning of high branches without fuel or fumes.',
+    shortDescription: 'Battery-powered telescopic pole saw for high branch pruning.',
+    image: '/images/equipment/hire/cordless-pole-saw.webp',
+    specifications: [
+      { label: 'Type', value: 'Pole-mounted cordless chainsaw' },
+      { label: 'Power', value: 'Battery-powered' },
+      { label: 'Advantage', value: 'Quiet, no fuel required' },
+    ],
+    suitableFor: ['High branch pruning', 'Tree trimming', 'Residential garden maintenance'],
+    featured: false,
     available: true,
   },
 ]
