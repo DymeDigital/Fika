@@ -1,3 +1,5 @@
+import raw from './categories.json'
+
 export interface Category {
   id: string
   name: string
@@ -8,59 +10,8 @@ export interface Category {
   image: string
 }
 
-export const categories: Category[] = [
-  {
-    id: 'power-tools',
-    name: 'Power Tools',
-    slug: 'power-tools',
-    description: 'Grinders, drills, rotary hammers and more',
-    iconKey: 'Zap',
-    count: 8,
-    image: '/images/equipment/angle-grinder.jpg',
-  },
-  {
-    id: 'compaction',
-    name: 'Compaction',
-    slug: 'compaction',
-    description: 'Plate compactors, rammers and rollers',
-    iconKey: 'Layers',
-    count: 4,
-    image: '/images/equipment/plate-compactor.jpg',
-  },
-  {
-    id: 'cleaning',
-    name: 'Cleaning Equipment',
-    slug: 'cleaning',
-    description: 'Pressure washers, wet & dry vacs',
-    iconKey: 'Droplets',
-    count: 5,
-    image: '/images/equipment/pressure-washer.jpg',
-  },
-  {
-    id: 'garden',
-    name: 'Garden Equipment',
-    slug: 'garden',
-    description: 'Lawn mowers, strimmers and chippers',
-    iconKey: 'Leaf',
-    count: 6,
-    image: '/images/equipment/lawn-mower.jpg',
-  },
-  {
-    id: 'cutting',
-    name: 'Cutting Equipment',
-    slug: 'cutting',
-    description: 'Concrete saws, angle grinders and cutters',
-    iconKey: 'Scissors',
-    count: 5,
-    image: '/images/equipment/concrete-saw.jpg',
-  },
-  {
-    id: 'air-compressors',
-    name: 'Air Compressors',
-    slug: 'air-compressors',
-    description: 'Belt-drive and direct-drive compressors',
-    iconKey: 'Wind',
-    count: 3,
-    image: '/images/equipment/compressor.jpg',
-  },
-]
+// Categories live in categories.json (they need an icon key present in
+// components/ui/CategoryCard.tsx's iconMap plus a hero image — developer
+// concerns that change rarely). The Google Sheet only references category
+// *names*; scripts/fetch-products.mjs validates every product against this list.
+export const categories: Category[] = raw as Category[]

@@ -1,24 +1,25 @@
-'use client'
-
-import { motion } from 'framer-motion'
+import type { CSSProperties, ReactNode } from 'react'
 
 interface RevealProps {
-  children: React.ReactNode
-  delay?: number
+  children: ReactNode
+  /** Travel distance in px for the rise-in (default 24). */
   y?: number
   className?: string
+  /** Accepted for backwards compatibility; no longer used. */
+  delay?: number
 }
 
-export default function Reveal({ children, delay = 0, y = 24, className }: RevealProps) {
+/**
+ * Entrance wrapper. Pure CSS scroll-driven animation (see `.reveal` in
+ * globals.css) — renders as a plain server component with no JS cost.
+ */
+export default function Reveal({ children, y, className }: RevealProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] as const }}
-      className={className}
+    <div
+      className={className ? `reveal ${className}` : 'reveal'}
+      style={y != null ? ({ '--reveal-y': `${y}px` } as CSSProperties) : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }

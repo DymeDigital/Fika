@@ -1,7 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import CategoryCard from '@/components/ui/CategoryCard'
 import { categories } from '@/lib/data/categories'
 
@@ -17,13 +14,7 @@ export default function CategoryGrid() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
-          className="text-center max-w-2xl mx-auto"
-        >
+        <div className="text-center max-w-2xl mx-auto reveal">
           <h2 id="categories-heading" className="display-lg" style={{ color: '#0D0D0D' }}>
             Explore a Vast Range of Quality Equipment
           </h2>
@@ -38,7 +29,7 @@ export default function CategoryGrid() {
           >
             Find Equipment
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import MobileActionBar from '@/components/layout/MobileActionBar'
-import { SITE } from '@/lib/constants'
+import JsonLd from '@/components/seo/JsonLd'
+import { SITE, OPENING_HOURS_SPEC } from '@/lib/constants'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,15 +35,50 @@ export const metadata: Metadata = {
     'pressure washer hire',
     'compactor hire',
   ],
-  metadataBase: new URL('https://fikatoolhire.co.za'),
+  metadataBase: new URL(SITE.url),
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_ZA',
-    url: 'https://fikatoolhire.co.za',
+    url: SITE.url,
     siteName: SITE.name,
     title: `${SITE.name} | Professional Equipment Hire Durban`,
     description: SITE.description,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE.name} | Professional Equipment Hire Durban`,
+    description: SITE.description,
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#116242',
+  colorScheme: 'light',
+  width: 'device-width',
+  initialScale: 1,
+}
+
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['Store', 'HardwareStore'],
+  name: SITE.name,
+  description: SITE.description,
+  telephone: SITE.phone,
+  email: SITE.email,
+  url: SITE.url,
+  image: `${SITE.url}/opengraph-image`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '79 Padfield Road',
+    addressLocality: 'New Germany',
+    addressRegion: 'KwaZulu-Natal',
+    addressCountry: 'ZA',
+  },
+  openingHoursSpecification: OPENING_HOURS_SPEC.map((spec) => ({
+    '@type': 'OpeningHoursSpecification',
+    ...spec,
+  })),
 }
 
 export default function RootLayout({
@@ -53,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en-ZA" className={`${inter.variable} ${poppins.variable}`}>
       <body>
+        <JsonLd data={localBusinessJsonLd} />
         <Navbar />
         <main>{children}</main>
         <Footer />

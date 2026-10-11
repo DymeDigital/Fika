@@ -6,6 +6,7 @@ import { Phone, MessageCircle, Check, ChevronLeft } from 'lucide-react'
 import { equipment, getEquipmentBySlug, getRelatedEquipment } from '@/lib/data/equipment'
 import EquipmentCard from '@/components/ui/EquipmentCard'
 import Reveal from '@/components/ui/Reveal'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildWhatsAppLink, SITE } from '@/lib/constants'
 
 interface Props {
@@ -20,9 +21,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const item = getEquipmentBySlug(slug)
   if (!item) return {}
+  const title = `${item.name} Hire — R${item.dailyRate}/day`
+  const url = `/equipment/${item.slug}/`
   return {
-    title: `${item.name} Hire — R${item.dailyRate}/day`,
+    title,
     description: item.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      locale: 'en_ZA',
+      url,
+      siteName: SITE.name,
+      title,
+      description: item.description,
+      images: [{ url: item.image, alt: item.name }],
+    },
   }
 }
 
@@ -34,8 +47,27 @@ export default async function EquipmentDetailPage({ params }: Props) {
   const related = getRelatedEquipment(item, 4)
   const waMessage = `Hi FIKA, I'd like to hire the ${item.name} (R${item.dailyRate}/day). Please advise on availability.`
 
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: item.name,
+    description: item.description,
+    image: item.image.startsWith('http') ? item.image : `${SITE.url}${item.image}`,
+    category: item.category,
+    offers: {
+      '@type': 'Offer',
+      price: item.dailyRate,
+      priceCurrency: 'ZAR',
+      availability: item.available
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/OutOfStock',
+      url: `${SITE.url}/equipment/${item.slug}/`,
+    },
+  }
+
   return (
     <div className="pt-24 md:pt-28">
+      <JsonLd data={productJsonLd} />
       {/* Breadcrumb */}
       <div className="border-b py-4" style={{ borderColor: '#E5E5E3', background: 'white' }}>
         <div className="container-site">

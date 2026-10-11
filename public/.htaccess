@@ -1,0 +1,59 @@
+# FIKA Tool & Plant Hire — static export served by Apache (Afrihost).
+# This file is copied verbatim into out/.htaccess by `next build`.
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Bare clean URL -> add trailing slash when the generated directory exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+[^/])$ /$1/ [L,R=301]
+
+  # Serve pretty .html when present and no trailing-slash match
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.+)$ /$1.html [L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# Next's file-convention metadata images (icon.tsx, apple-icon.tsx,
+# opengraph-image.tsx, twitter-image.tsx) build to extensionless files
+# (/icon, /apple-icon, /opengraph-image, /twitter-image). Apache can't infer
+# a Content-Type without an extension, so force it — otherwise these get
+# served as text/plain and social crawlers/browsers silently ignore them.
+<IfModule mod_mime.c>
+  <FilesMatch "^(icon|apple-icon|opengraph-image|twitter-image)$">
+    ForceType image/png
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Static files. Only /_next/static/ names are content-hashed, so only those
+  # are safe to cache forever. Everything else (e.g. /images/*) keeps its name
+  # when replaced, so cache it for a week — a swapped photo shows up within days.
+  <FilesMatch "\.(js|css|woff2?|ttf|eot|otf|svg|png|jpe?g|webp|gif|ico|avif)$">
+    <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+      Header set Cache-Control "public, max-age=31536000, immutable"
+    </If>
+    <Else>
+      Header set Cache-Control "public, max-age=604800"
+    </Else>
+  </FilesMatch>
+  # Generated icon/OG images — same treatment, keyed by Next's query-string hash
+  <FilesMatch "^(icon|apple-icon|opengraph-image|twitter-image)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # HTML — always revalidate so a fresh deploy shows immediately
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>

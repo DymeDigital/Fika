@@ -55,8 +55,8 @@ export default function ContactPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    const msg = `Hi FIKA,%0A%0AName: ${formState.name}%0APhone: ${formState.phone}%0AEmail: ${formState.email}%0AEquipment: ${formState.equipment}%0AMessage: ${formState.message}`
-    window.open(`https://wa.me/${SITE.whatsapp}?text=${msg}`, '_blank')
+    const msg = `Hi FIKA,\n\nName: ${formState.name}\nPhone: ${formState.phone}\nEmail: ${formState.email}\nEquipment: ${formState.equipment}\nMessage: ${formState.message}`
+    window.open(buildWhatsAppLink(msg), '_blank')
     setSubmitted(true)
   }
 
@@ -178,7 +178,7 @@ export default function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label

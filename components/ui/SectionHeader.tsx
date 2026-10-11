@@ -1,7 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
-
 interface SectionHeaderProps {
   label?: string
   title: string
@@ -12,13 +8,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ label, title, subtitle, center = false, light = false }: SectionHeaderProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
-      className={`${center ? 'text-center' : ''} mb-12`}
-    >
+    <div className={`${center ? 'text-center' : ''} mb-12 reveal`}>
       {label && (
         <p className={`section-label mb-3 ${light ? 'text-white/40' : ''}`}
           style={light ? { color: 'rgba(255,255,255,0.5)' } : {}}>
@@ -36,6 +26,6 @@ export default function SectionHeader({ label, title, subtitle, center = false, 
         </p>
       )}
       <div className={`mt-5 section-divider ${center ? 'mx-auto' : ''}`} />
-    </motion.div>
+    </div>
   )
 }

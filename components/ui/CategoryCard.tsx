@@ -1,11 +1,8 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  Zap, Layers, Droplets, Wind, Leaf, Scissors, ArrowUpToLine,
+  Zap, Layers, Droplets, Wind, Leaf, Scissors, ArrowUpToLine, Paintbrush,
 } from 'lucide-react'
-import { motion } from 'framer-motion'
 import type { Category } from '@/lib/data/categories'
 
 const iconMap: Record<string, React.ElementType> = {
@@ -17,23 +14,20 @@ const iconMap: Record<string, React.ElementType> = {
   Scissors,
   ArrowUpToLine,
   Wind,
+  Paintbrush,
 }
 
 interface CategoryCardProps {
   category: Category
+  /** Accepted for backwards compatibility; no longer used. */
   index?: number
 }
 
-export default function CategoryCard({ category, index = 0 }: CategoryCardProps) {
+export default function CategoryCard({ category }: CategoryCardProps) {
   const Icon = iconMap[category.iconKey] ?? Zap
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.4, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] as const }}
-    >
+    <div className="reveal">
       <Link
         href={`/equipment?category=${category.slug}`}
         className="group relative isolate block aspect-square overflow-hidden rounded-md"
@@ -75,6 +69,6 @@ export default function CategoryCard({ category, index = 0 }: CategoryCardProps)
         {/* Bottom accent bar on hover */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-finka-yellow scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
       </Link>
-    </motion.div>
+    </div>
   )
 }

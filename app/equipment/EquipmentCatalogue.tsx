@@ -1,9 +1,7 @@
 'use client'
 
 import { useState, useMemo, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
-import { motion } from 'framer-motion'
 import EquipmentCard from '@/components/ui/EquipmentCard'
 import { equipment } from '@/lib/data/equipment'
 import { categories } from '@/lib/data/categories'
@@ -11,16 +9,16 @@ import { categories } from '@/lib/data/categories'
 type SortOption = 'name' | 'price-asc' | 'price-desc'
 
 export default function EquipmentCatalogue() {
-  const searchParams = useSearchParams()
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState<SortOption>('name')
 
-  // Read initial category from URL param
+  // Deep-link support: apply ?category= after mount. Kept out of the initial
+  // render (no useSearchParams) so the full grid prerenders to static HTML.
   useEffect(() => {
-    const cat = searchParams.get('category')
+    const cat = new URLSearchParams(window.location.search).get('category')
     if (cat) setSelectedCategory(cat)
-  }, [searchParams])
+  }, [])
 
   const filtered = useMemo(() => {
     let result = equipment
@@ -140,11 +138,7 @@ export default function EquipmentCatalogue() {
           </p>
 
           {filtered.length === 0 ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-24"
-            >
+            <div className="text-center py-24">
               <p className="text-2xl font-bold mb-2" style={{ color: '#0D0D0D' }}>
                 No results found
               </p>
@@ -160,11 +154,11 @@ export default function EquipmentCatalogue() {
               >
                 Clear filters
               </button>
-            </motion.div>
+            </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filtered.map((item, i) => (
-                <EquipmentCard key={item.id} item={item} index={i} />
+              {filtered.map((item) => (
+                <EquipmentCard key={item.id} item={item} />
               ))}
             </div>
           )}

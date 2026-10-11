@@ -1,9 +1,6 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 const values = [
   'Family-owned and operated in Durban',
@@ -24,17 +21,11 @@ export default function AboutSection() {
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image side */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
-            className="relative"
-          >
+          <div className="relative reveal">
             {/* Main image */}
             <div className="aspect-[4/3] w-full relative overflow-hidden bg-neutral-100 p-4">
               <Image
-                src="/images/about.png"
+                src="/images/about.webp"
                 alt="About FIKA Tool & Plant Hire"
                 fill
                 className="object-contain"
@@ -46,15 +37,10 @@ export default function AboutSection() {
               className="absolute -bottom-4 -right-4 w-2/3 h-2/3 -z-10 border-b-2 border-r-2"
               style={{ borderColor: '#1C3A2E' }}
             />
-          </motion.div>
+          </div>
 
           {/* Text side */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
-          >
+          <div className="reveal">
             <p className="section-label mb-4">Our story</p>
             <h2 id="about-heading" className="display-md mb-5" style={{ color: '#0D0D0D' }}>
               Built on reliability
@@ -94,7 +80,7 @@ export default function AboutSection() {
               More about us
               <ArrowRight size={15} />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

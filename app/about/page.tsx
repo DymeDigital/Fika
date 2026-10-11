@@ -4,11 +4,24 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import CtaStrip from '@/components/sections/CtaStrip'
 import Reveal from '@/components/ui/Reveal'
+import { SITE } from '@/lib/constants'
+
+const title = 'About Us'
+const description =
+  'Learn about FIKA Tool & Plant Hire — a family-owned equipment hire business based in Durban, KwaZulu-Natal.'
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description:
-    'Learn about FIKA Tool & Plant Hire — a family-owned equipment hire business based in Durban, KwaZulu-Natal.',
+  title,
+  description,
+  alternates: { canonical: '/about/' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_ZA',
+    url: '/about/',
+    siteName: SITE.name,
+    title,
+    description,
+  },
 }
 
 const values = [
@@ -49,11 +62,11 @@ export default function AboutPage() {
       <section className="py-20 md:py-28" style={{ background: 'white' }}>
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Image placeholder */}
+            {/* Left: Image */}
             <Reveal y={30} className="relative">
               <div className="aspect-[4/5] w-full relative overflow-hidden bg-neutral-100 p-4">
                 <Image
-                  src="/images/about.png"
+                  src="/images/about.webp"
                   alt="About FIKA Tool & Plant Hire"
                   fill
                   className="object-contain"

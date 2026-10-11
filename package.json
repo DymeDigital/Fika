@@ -4,27 +4,32 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node --env-file-if-exists=.env.local scripts/fetch-products.mjs",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "npx --yes serve out",
+    "lint": "next lint",
+    "products:pull": "node --env-file-if-exists=.env.local scripts/fetch-products.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs",
+    "preview": "npm run build && npm run start"
   },
   "dependencies": {
-    "next": "^15.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.0.0",
     "lucide-react": "^0.468.0",
-    "clsx": "^2.1.1"
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "typescript": "^5",
-    "tailwindcss": "^4",
-    "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "^15.3.0",
-    "postcss": "^8"
+    "postcss": "^8",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

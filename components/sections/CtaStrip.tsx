@@ -1,7 +1,4 @@
-'use client'
-
 import { Phone, MessageCircle, Clock } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { SITE, buildWhatsAppLink } from '@/lib/constants'
 
 export default function CtaStrip() {
@@ -12,13 +9,7 @@ export default function CtaStrip() {
       aria-label="Contact CTA"
     >
       <div className="container-site">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
-          className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
-        >
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center reveal">
           {/* Left: heading, hours, CTAs */}
           <div>
             <h2 className="text-white text-2xl md:text-3xl font-bold tracking-tight">
@@ -78,7 +69,7 @@ export default function CtaStrip() {
               aria-label="Map showing FIKA Tool & Plant Hire location in Durban"
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

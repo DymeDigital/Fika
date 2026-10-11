@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import EquipmentCatalogue from './EquipmentCatalogue'
 import Reveal from '@/components/ui/Reveal'
 
@@ -21,9 +20,7 @@ export default function EquipmentPage() {
         </div>
       </div>
 
-      <Suspense fallback={<div className="py-20 text-center" style={{ color: '#737370' }}>Loading equipment…</div>}>
-        <EquipmentCatalogue />
-      </Suspense>
+      <EquipmentCatalogue />
     </div>
   )
 }
