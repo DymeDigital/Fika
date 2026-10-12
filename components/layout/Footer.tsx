@@ -125,6 +125,17 @@ export default function Footer() {
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
           <p>© {year} {SITE.name}. All rights reserved.</p>
           <p>Durban, KwaZulu-Natal, South Africa</p>
+          <p>
+            Built by{' '}
+            <a
+              href="https://dyme.digital"
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-2 hover:text-white transition-colors"
+            >
+              Dyme
+            </a>
+          </p>
         </div>
       </div>
     </footer>
