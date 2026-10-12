@@ -4,7 +4,7 @@ name: Build check
 # row from the Google Sheet (scripts/fetch-products.mjs, run by the prebuild hook).
 # Catches a bad sheet edit or a TypeScript error before it reaches the host.
 #
-# Deployment is a manual upload of out/ to Afrihost (Apache), not here. This workflow never
+# Deployment is handled by the host (Vercel), not here. This workflow never
 # deploys anything.
 #
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
